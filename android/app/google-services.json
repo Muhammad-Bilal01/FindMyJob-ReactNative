@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "143020440592",
+    "project_id": "findmyjob-16377",
+    "storage_bucket": "findmyjob-16377.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143020440592:android:c00a1bed20271c09ff9e95",
+        "android_client_info": {
+          "package_name": "com.find_my_job"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALWxbAHEoz2sRL1BfQtph4DjBj0e0Vzng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
