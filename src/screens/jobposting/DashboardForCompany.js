@@ -28,7 +28,11 @@ function DashboardForCompany() {
       ) : selectedTab === 2 ? (
         <Chat />
       ) : (
-        <Profile1 />
+        <Profile1
+          onJobsClick={() => {
+            setSelectedTab(0);
+          }}
+        />
       )}
 
       <View style={styles.bottomView}>
