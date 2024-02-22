@@ -21,7 +21,11 @@ function SelectUser() {
         }}>
         <Text style={styles.btnText}>Want to Hire Candidate</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.wantToJob}>
+      <TouchableOpacity
+        style={styles.wantToJob}
+        onPress={() => {
+          navigation.navigate('JobSearching');
+        }}>
         <Text style={styles.btnText2}>Want to Get Jobs</Text>
       </TouchableOpacity>
     </View>
