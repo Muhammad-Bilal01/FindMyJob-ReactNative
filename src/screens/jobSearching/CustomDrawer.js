@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  FlatList,
   Image,
   Platform,
   SafeAreaView,
@@ -8,10 +9,20 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {BLACK_COLOR, WHITE_COLOR} from '../../utils/Colors';
-import {moderateScale, scale} from 'react-native-size-matters';
+import {BLACK_COLOR, GRAY_COLOR, WHITE_COLOR} from '../../utils/Colors';
+import {
+  moderateScale,
+  moderateVerticalScale,
+  scale,
+  verticalScale,
+} from 'react-native-size-matters';
 
 function CustomDrawer() {
+  const drawerItem = [
+    {title: 'Rate Us', icon: require('../../images/contact.png')},
+    {title: 'Theme', icon: require('../../images/theme.png')},
+  ];
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.drawer_header}>
@@ -34,6 +45,25 @@ function CustomDrawer() {
           <Text style={{color: BLACK_COLOR}}>Register</Text>
         </TouchableOpacity>
       </View>
+      <View style={styles.separator}></View>
+      <FlatList
+        contentContainerStyle={{marginTop: moderateVerticalScale(40)}}
+        data={drawerItem}
+        renderItem={({item, index}) => {
+          return (
+            <TouchableOpacity style={styles.menu_item}>
+              <View style={styles.menu_left}>
+                <Image source={item.icon} style={styles.icon} />
+                <Text style={styles.title}>{item.title}</Text>
+              </View>
+              <Image
+                style={{width: scale(20), height: scale(20)}}
+                source={require('../../images/right.png')}
+              />
+            </TouchableOpacity>
+          );
+        }}
+      />
     </SafeAreaView>
   );
 }
@@ -89,6 +119,36 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: moderateScale(20),
+  },
+  separator: {
+    marginTop: moderateVerticalScale(10),
+    width: '100%',
+    height: verticalScale(1),
+    opacity: 0.5,
+    backgroundColor: GRAY_COLOR,
+  },
+  menu_item: {
+    height: verticalScale(45),
+    width: '90%',
+    alignSelf: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: moderateScale(5),
+  },
+  menu_left: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    width: scale(30),
+    height: scale(30),
+    marginRight: moderateScale(5),
+  },
+  title: {
+    color: BLACK_COLOR,
+    fontSize: moderateScale(18),
+    fontWeight: '500',
   },
 });
 
